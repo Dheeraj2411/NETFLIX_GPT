@@ -4,8 +4,19 @@
  -Create React App
  -Configured TailWindCSS
  -Header
+ -Routing of App
  -Login Form
  -Sigup Form
+ -Form Validation
+ -useRef Hook
+ -firebase setup(for Authentication)
+ -Deploying our app to production
+ -Create Sign Up User Account
+ -Implement sign In User api
+ -Creadted ReduxStore with UserSlice
+ -Implemented sign Out
+ -Update profile  
+ -Fetch  from Movies TMDB
 
 
 # Features 

@@ -16,7 +16,7 @@
  -Creadted ReduxStore with UserSlice
  -Implemented sign Out
  -Update profile  
- -Fetch  from Movies TMDB
+ -Fetch   Movies from TMDB
 
 
 # Features 

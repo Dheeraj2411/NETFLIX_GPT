@@ -7,14 +7,14 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utilities/userSlice";
+import { avtarLogo, bgLogo } from "../utilities/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -39,11 +39,12 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/121419166?v=4",
+            photoURL: avtarLogo,
           })
             .then(() => {
               // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
+              // update redux store
               dispatch(
                 addUser({
                   uid: uid,
@@ -52,13 +53,11 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
               setErrorMsg(error.message);
             });
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -76,7 +75,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -94,18 +92,14 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute bg-gradient-to-br  from-black ">
-        <img
-          className=""
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_medium.jpg"
-          alt="bg-logo"
-        />
+      <div className="absolute bg-gradient-to-br bg-cover bg-center   from-black ">
+        <img className="h-screen z-0 w-screen" src={bgLogo} alt="bg-logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-4/12 p-12 absolute bg-opacity-85 z-20 bg-black my-28 right-0 left-0 mx-auto text-white rounded-sm"
+        className="w-4/12 px-[4%] pt-[2%] absolute bg-opacity-85 z-20 bg-black my-[6%] right-0 left-0 mx-auto text-white rounded-sm"
       >
-        <h1 className="m-2 font-bold text-3xl py-4">
+        <h1 className="m-1 font-bold text-3xl py-3">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignIn && (
@@ -139,7 +133,7 @@ const Login = () => {
           Forgot Password ?
         </button>
         <p
-          className="cursor-pointer hover:underline hover:text-gray-300"
+          className=" pb-4 cursor-pointer hover:underline hover:text-gray-300"
           onClick={toggleBtn}
         >
           {isSignIn

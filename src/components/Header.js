@@ -24,7 +24,7 @@ const Header = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      // console.log(auth);
+     
       if (user) {
         // User is signed in, see docs for a list of available properties
 
@@ -49,7 +49,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute px-6 py-2  z-50 w-full flex justify-between">
+    <div className="scroll-m-1  px-6 py-2  z-50 w-full flex justify-between fixed">
       <img className="w-44" src={netflixLogo} alt="logo" />
       {user && (
         <div className="flex p-2 z-50">

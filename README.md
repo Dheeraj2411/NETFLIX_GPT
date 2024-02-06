@@ -31,6 +31,7 @@
 -Update Store With Trailor Video Data
 -Embedded the Youtube Video and make it autoPlay and mute
 -Tailwind classes to make main container look awesome
+-Build Secondary Component
 
 # Features 
 - Login/Sign Up

@@ -13,3 +13,6 @@ export const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNTc5YzAzNzBjNzJjZWE2Mjc5YjAwMTAyOWNhZTAzMiIsInN1YiI6IjY1YmJiNzI2ZTE4Yjk3MDE3YjlhMzUxOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o57g43fWUlPKRI1GpjvPppSYY0scIlOZrezMXuVHOo8",
   },
 };
+
+
+export const movie_poster_URL = "https://image.tmdb.org/t/p/w500";

@@ -7,21 +7,31 @@ import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpComing from "../hooks/useUpComing";
 import useTvSeriesPopular from "../hooks/useTvSeriesPopular";
 import useTopRatedSeries from "../hooks/useTopRatedSeries";
-// import { addPopularTVSerie } from "../utilities/moviesSlice";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
+
 const Browse = () => {
+  const selector = useSelector((store) => store.gptSlice.showGptSearch);
+  
   useNowPlaying();
   usePopularMovies();
   useTopRatedMovies();
   useUpComing();
   usePopularMovies();
   useTvSeriesPopular();
-  useTopRatedSeries()
+  useTopRatedSeries();
 
   return (
     <div className="">
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {selector ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };

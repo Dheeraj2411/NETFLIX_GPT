@@ -14,10 +14,8 @@ const useTvSeriesPopular = () => {
       options
     );
     const json = await data.json();
-    console.log(json);
-    console.log("hhehe");
-    dispatch(addPopularTVSeries(json.results
-        ));
+
+    dispatch(addPopularTVSeries(json.results));
   };
 };
 

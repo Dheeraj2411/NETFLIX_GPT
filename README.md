@@ -1,6 +1,5 @@
 # Netflix GPT
  
-
  -Create React App
  -Configured TailWindCSS
  -Header
@@ -32,6 +31,19 @@
 -Embedded the Youtube Video and make it autoPlay and mute
 -Tailwind classes to make main container look awesome
 -Build Secondary Component
+-Build Movie List 
+-Build Movie Card
+-TMDB Image CDN URL
+-Made browse page Amazing  with TailWind
+-usePopularMovie custom Hook
+-useTopRatedMovie custom Hook
+-useTvseriesPopular custom Hook
+-useUpComing custom Hook
+-useTopRatedSeries  custom Hook
+-GPT Search Page
+-GPT Search Bar
+-(Bonus) Multi-language in our App
+
 
 # Features 
 - Login/Sign Up

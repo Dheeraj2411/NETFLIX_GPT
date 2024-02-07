@@ -16,3 +16,9 @@ export const options = {
 
 
 export const movie_poster_URL = "https://image.tmdb.org/t/p/w500";
+
+export const supported_languages = [
+  { identifier: "eng", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "spanish", name: "Spanish" },
+];

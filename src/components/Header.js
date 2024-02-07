@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utilities/firebase";
 import { addUser, removeUser } from "../utilities/userSlice";
-import { netflixLogo } from "../utilities/constants";
+import { netflixLogo, supported_languages } from "../utilities/constants";
+import { toggleGptSearchView } from "../utilities/gptSlice";
+import { changeLanguage } from "../utilities/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store?.user);
+  const dispatch = useDispatch();
+  const showGpt = useSelector((store) => store.gptSlice.showGptSearch);
 
   const handleClick = () => {
     signOut(auth)
@@ -21,10 +25,8 @@ const Header = () => {
       });
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-     
       if (user) {
         // User is signed in, see docs for a list of available properties
 
@@ -48,21 +50,47 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const toggleHandle = () => {
+    dispatch(toggleGptSearchView());
+  };
+  const handleLanguage = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
-    <div className="scroll-m-1  px-6 py-2  z-50 w-full flex justify-between fixed">
+    <div className="z-50 px-6  w-full flex justify-between fixed bg-slate-900 bg-opacity-20">
       <img className="w-44" src={netflixLogo} alt="logo" />
       {user && (
-        <div className="flex p-2 z-50">
+        <div className="flex py-3  mx-2">
+          {showGpt && (
+            <select
+              className=" text-lg p-2 m-1 outline-none rounded-md"
+              onChange={handleLanguage}
+            >
+              {supported_languages.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+
+          <button
+            className="text-white mr-2 font-semibold rounded-lg bg-violet-500 px-4 "
+            onClick={toggleHandle}
+          >
+            {showGpt ? "Home" : "Gpt Search"}
+          </button>
           <img
-            className="w-10 h-10 rounded-3xl content-center"
+            className="w-10 h-10 mx-4 mt-2 rounded-3xl content-center"
             src={user?.photoURL}
             alt="imgIcon"
           />
           <button
             onClick={handleClick}
-            className="text-white font-bold ml-1 pb-4 text-center"
+            className="text-white mr-2 font-bold rounded-lg bg-slate-600 px-2"
           >
-            sign out
+            Sign Out
           </button>
         </div>
       )}

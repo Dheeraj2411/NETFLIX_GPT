@@ -13,14 +13,14 @@ import { useSelector } from "react-redux";
 const Browse = () => {
   const selector = useSelector((store) => store.gptSlice.showGptSearch);
   
-  useNowPlaying();
+  const data =useNowPlaying();
   usePopularMovies();
   useTopRatedMovies();
   useUpComing();
   usePopularMovies();
   useTvSeriesPopular();
   useTopRatedSeries();
-
+  
   return (
     <div className="">
       <Header />

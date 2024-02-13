@@ -43,6 +43,15 @@
 -GPT Search Page
 -GPT Search Bar
 -(Bonus) Multi-language in our App
+-Gpt  Open API key
+-Get Search API Call
+-Fetched Movie suggestion from TMDB
+-GPT Slice added data
+-Reuse Movie Component  to make suggestion container
+-Memoization
+-Added .env file
+-Adding .env to gititignore 
+-Make our site Responsive
 
 
 # Features 

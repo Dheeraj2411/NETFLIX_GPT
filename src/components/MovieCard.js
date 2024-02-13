@@ -1,15 +1,15 @@
 import React from "react";
 import { movie_poster_URL } from "../utilities/constants";
 
-const MovieCard = ({ movie }) => {
-  
+const MovieCard = ({ poster_path }) => {
+  if (!poster_path) return null;
   return (
-    <div>
-      <div className="w-52   ">
+    <div className="">
+      <div className="w-40 md:w-52 m-1 py-3 ">
         <img
-          className=" px-1 w-full  rounded-lg  "
+          className=" px-1 object-cover rounded-lg  h-full  "
           alt="title of movie"
-          src={movie_poster_URL + movie?.poster_path}
+          src={movie_poster_URL + poster_path}
         />
       </div>
     </div>

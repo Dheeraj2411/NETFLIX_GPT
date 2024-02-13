@@ -5,14 +5,19 @@ import GptMovieSuggestion from "./GptMovieSuggestion";
 
 const GptSearch = () => {
   return (
-    <div className="">
-      <div className="absolute -z-10 w-full">
-        <img className="w-screen" alt="bg logo" src={bgLogo} />
+    <>
+      <div className="fixed -z-10 md:w-full  ">
+        <img
+          className="h-screen object-cover md:object-cover md:w-full  "
+          alt="bg logo"
+          src={bgLogo}
+        />
       </div>
-
-      <GptSearchBar />
-      <GptMovieSuggestion />
-    </div>
+      <div className=" bg-black bg-opacity-25 ">
+        <GptSearchBar />
+        <GptMovieSuggestion />
+      </div>
+    </>
   );
 };
 

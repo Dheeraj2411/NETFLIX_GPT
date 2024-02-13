@@ -90,16 +90,20 @@ const Login = () => {
  
 
   return (
-    <div>
+    <div className=" ">
       <Header />
-      <div className="absolute bg-gradient-to-br bg-cover bg-center   from-black ">
-        <img className="h-screen z-0 w-screen" src={bgLogo} alt="bg-logo" />
+      <div className="fixed h-full  ">
+        <img
+          className="h-screen w-screen object-cover "
+          src={bgLogo}
+          alt="bg-logo"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-4/12 px-[4%] pt-[2%] absolute bg-opacity-85 z-20 bg-black my-[6%] right-0 left-0 mx-auto text-white rounded-sm"
+        className="w-full md:w-5/12 mt-[20%]  md:mt-[13%]  absolute  bg-opacity-75 z-20 bg-black right-0 left-0 p-3 md:mx-auto text-white rounded-lg"
       >
-        <h1 className="m-1 font-bold text-3xl py-3">
+        <h1 className="m-1 font-bold text-2xl md:text-3xl py-3">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignIn && (
@@ -133,7 +137,7 @@ const Login = () => {
           Forgot Password ?
         </button>
         <p
-          className=" pb-4 cursor-pointer hover:underline hover:text-gray-300"
+          className="pl-5 md:pl-0 pb-4 cursor-pointer hover:underline hover:text-gray-300"
           onClick={toggleBtn}
         >
           {isSignIn

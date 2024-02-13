@@ -58,13 +58,17 @@ const Header = () => {
   };
 
   return (
-    <div className="z-50 px-6  w-full flex justify-between fixed bg-slate-900 bg-opacity-20">
-      <img className="w-44" src={netflixLogo} alt="logo" />
+    <div className=" z-50 px-6  w-full flex  flex-col md:flex-row justify-between absolute bg-black   ">
+      <img
+        className="md:w-44 w-36 md:mx-0 mx-auto"
+        src={netflixLogo}
+        alt="logo"
+      />
       {user && (
-        <div className="flex py-3  mx-2">
+        <div className="flex py-3   md:mx-0 mx-auto ">
           {showGpt && (
             <select
-              className=" text-lg p-2 m-1 outline-none rounded-md"
+              className="md:h-auto text-lg md:p-1 mx-8 md:mx-2 px-2 outline-none rounded-md"
               onChange={handleLanguage}
             >
               {supported_languages.map((lang) => (
@@ -76,19 +80,19 @@ const Header = () => {
           )}
 
           <button
-            className="text-white mr-2 font-semibold rounded-lg bg-violet-500 px-4 "
+            className="text-white h-10 md:h-auto md:mr-2 font-semibold rounded-lg bg-violet-500 mx-5 md:px-4 px-3 mt-1"
             onClick={toggleHandle}
           >
             {showGpt ? "Home" : "Gpt Search"}
           </button>
           <img
-            className="w-10 h-10 mx-4 mt-2 rounded-3xl content-center"
+            className="ml-5 w-10 h-10 mx-4 mt-2 rounded-3xl content-center"
             src={user?.photoURL}
             alt="imgIcon"
           />
           <button
             onClick={handleClick}
-            className="text-white mr-2 font-bold rounded-lg bg-slate-600 px-2"
+            className="text-white md:h-auto ml-5 mr-2 font-bold rounded-lg bg-slate-600 px-2"
           >
             Sign Out
           </button>
